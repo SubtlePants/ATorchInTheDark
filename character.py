@@ -8,5 +8,17 @@ class character(object):
         self.skills = []
         self.conditions = []
         self.stash = 0
-        self.companions = []
-        self.inventory = []
+        self.companions = {}
+        self.inventory = {}
+
+    def addCondition(self, name):
+        self.conditions.append(name)
+
+    def addStress(self, stress):
+        self.stress += stress
+        if self.stress >= 6:
+            self.addCorruption()
+            self.stress = 0
+
+    def addCorruption(self):
+        self.corruption += 1
