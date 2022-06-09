@@ -4,6 +4,7 @@ class character(object):
         self.name = ""
         self.stress = 0
         self.corruption = 0
+        self.corruptioncap = 5
         self.xp = 0
         self.skills = []
         self.conditions = []
@@ -11,14 +12,20 @@ class character(object):
         self.companions = {}
         self.inventory = {}
 
-    def addCondition(self, name):
+    def addcondition(self, name):
         self.conditions.append(name)
 
-    def addStress(self, stress):
+    def addstress(self, stress):
         self.stress += stress
         if self.stress >= 6:
-            self.addCorruption()
+            self.addcorruption()
             self.stress = 0
 
-    def addCorruption(self):
+    def addcorruption(self):
         self.corruption += 1
+
+    def ressurect(self):
+        self.conditions = []
+        self.stress = 0
+        self.corruption = 0
+        self.corruptioncap -= 1
