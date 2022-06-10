@@ -9,7 +9,7 @@ class Character(object):
         self.conditions = []
         self.stash = 0
         self.companions = {}
-        self.inventory = {}
+        self.inventory = []
 
     def addcondition(self, name):
         self.conditions.append(name)
@@ -20,7 +20,7 @@ class Character(object):
             self.addcorruption()
             self.stress = 0
 
-    def addcorruption(self):
+    def addcofrruption(self):
         self.corruption += 1
 
     def ressurect(self):
@@ -39,10 +39,10 @@ class Character(object):
             return False
 
         # If there is at least one lantern or torch in the inventory, return False
-        for key in self.inventory:
-            if self.inventory[key].name == 'Torch':
+        for item in self.inventory:
+            if item.name == 'Torch':
                 return False
-            if self.inventory[key].name == 'Lantern':
+            if item.name == 'Lantern':
                 return False
         return True
 
