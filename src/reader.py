@@ -1,4 +1,4 @@
-from Item import *
+from src.item import *
 
 
 # returns a dictionary of all items in CSV (lies, semi-colon separated) file, item name is the key
